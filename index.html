@@ -12,15 +12,15 @@
 
     <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search news">
-        <button id="search"  onclick="input()">Search</button>
+        <button id="search" onclick="searchNews()">Search</button>
     </div>
 
 
     <div class="categories">
-        <button >Tech</button>
-        <button >Business</button>
-        <button >Sports</button>
-        <button >Health</button>
+        <button onclick="details('technology')">Tech</button>
+        <button onclick="details('business')">Business</button>
+        <button onclick="details('sports')">Sports</button>
+        <button onclick="details('health')">Health</button>
     </div>
     <div id="newsContainer"></div>
 

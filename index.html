@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AI News Analyzer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hi</h1>
+
+    <h1>AI News Analyzer Dashboard</h1>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search news">
+        <button id="search" >Search</button>
+    </div>
+
+
+    <div class="categories">
+        <button >Tech</button>
+        <button >Business</button>
+        <button >Sports</button>
+        <button >Health</button>
+    </div>
+    <div id="newsContainer"></div>
+
+    <script src="news.js"></script>
 </body>
 </html>

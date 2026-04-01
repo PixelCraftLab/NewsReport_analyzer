@@ -1,0 +1,29 @@
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+button {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: black;
+    color: white;
+    margin: 5px;
+}
+#searchInput{
+    padding: 7px;
+    border-color: black;
+}

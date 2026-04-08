@@ -29,3 +29,49 @@ button {
 }
 
 
+
+#newsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.news-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+.news-card h3 {
+    font-size: 1.1em;
+    margin: 10px;
+}
+
+.news-card p {
+    font-size: 0.9em;
+    margin: 0 10px 10px 10px;
+    color: #555;
+}
+

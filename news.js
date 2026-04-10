@@ -5,18 +5,33 @@
 const newsContainer = document.getElementById("newsContainer");
 
 async function details(category) {
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=b5885e3890bd43e1918a1afeb8dec392`
+    const url = `/api/news?category=${category}`;
     
-    const res = await fetch(url)
-    const data = await res.json()
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
 
-    displayNews(data.articles)
+        if (data.status === "ok") {
+            displayNews(data.articles);
+        } else {
+            console.error("API Error:", data.message);
+            newsContainer.innerHTML = `<p class="error-msg">Error: ${data.message || "Failed to fetch news"}</p>`;
+        }
+    } catch (err) {
+        console.error("Fetch error:", err);
+        newsContainer.innerHTML = `<p class="error-msg">Network error occurred.</p>`;
+    }
 }
 
 
 
 function displayNews(articles) {
     newsContainer.innerHTML = ""
+
+    if (!articles || !Array.isArray(articles)) {
+        newsContainer.innerHTML = "<p>No articles found.</p>";
+        return;
+    }
 
     articles.forEach(article => {
         const div = document.createElement("div")
@@ -41,14 +56,14 @@ searchBtn.addEventListener("click", async () => {
     if (!query) return;
 
     try {
-        const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&apiKey=b5885e3890bd43e1918a1afeb8dec392`;
+        const url = `/api/news?query=${encodeURIComponent(query)}`;
         const res = await fetch(url);
         const data = await res.json();
 
         if (data.status === "ok") {
             displayNews(data.articles);
         } else {
-            newsContainer.innerHTML = `<p>Error fetching news: ${data.message}</p>`;
+            newsContainer.innerHTML = `<p class="error-msg">Error fetching news: ${data.message}</p>`;
         }
     } catch (err) {
         newsContainer.innerHTML = `<p>Network error: ${err.message}</p>`;
